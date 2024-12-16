@@ -1,0 +1,187 @@
+
+body {
+  background-color: #f5f5f5;
+}
+.container-fluid {
+  height: 100vh;
+}
+.row {
+  height: 100%;
+}
+
+.left-col {
+  background-color: #F5FAF7FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"], select {
+  width: 538px; 
+  height: 26px; 
+   
+  
+  font-size: 14px; 
+  background: #00000000; /* transparent */
+  border-top-left-radius: 2px; 
+  border-top-right-radius: 2px; 
+  border-width: 0px; 
+  box-shadow: 0 1px 0 #52AE77; 
+  outline: none; 
+  
+
+}
+
+
+
+h3.mt-2{
+  font-size: 24px; 
+  font-family: Mulish;
+  color: #52AE77FF;
+  margin-left: 20px;
+}
+
+
+h2 {
+  
+  
+  font-size: 32px; 
+}
+
+
+
+.right-col {
+  background-color: #367C60FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 100px; 
+  position: relative;
+}
+
+.right-col h1 {
+  font-size: 48px;
+  margin: 0;
+  line-height: 1.2; 
+  
+  margin-top: 50px;
+}
+
+  
+  
+  
+  
+  label {
+    display: block;
+    
+    
+    height: 33px; 
+  
+  font-size: 20px; 
+  line-height: 30px; 
+  color: #171A1FFF; 
+  }
+  
+  .invalid-feedback.mb-3{
+  background-color: red;
+  font-size: 30px;
+}
+  
+  
+  .btn-primary {
+    background-color: #52AE77FF;
+    font-size: 20px;
+    border-radius: 0;
+    border: none;
+    
+  }
+
+  .btn-warning{
+    font-size: 20px;
+  }
+
+  .btn-primary.active{
+    background-color: #52AE77FF;
+  
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .btn{
+    width: 384px; 
+    height: 44px; 
+  }
+  
+  
+  
+  .gender-container {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .gender-btn {
+    /* background-color: #ACE1AF;; */
+    background-color: rgb(146, 177, 158);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    
+  }
+  
+  
+  
+  .gender-btn.active {
+    background-color:  #52AE77FF !important;;
+    color: #fff;
+  }
+  
+  
+  
+
+  
+ 
+  
+   
+    
+  
+  
+    
+      
+  .icon-image {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin-top:40px;
+    margin-bottom: 10px; 
+    float: left; 
+  }
+  
+  .logo-image {
+    width: 264px;
+    height: 130px;
+    display: block;
+    margin-right: 100px;
+    margin-left: 70px; 
+    float: left; 
+  }
+
+
+  
+.text-green{
+  color:  #52AE77FF ;
+}
+  /*#FFFFFF*/

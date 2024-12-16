@@ -1,0 +1,105 @@
+<div class="container-fluid bg-lightgreen">
+    <div class="container w-50 bg-lightgreen text-center pb-5 pt-5">
+        <img class="" height=200 width=200 src="../../../assets/images/checkout.png">
+        <div class="m-auto">
+            <div class="fs-5 ls-1 mb-2 mt-4 fw-bold">Thank You for your Purchase!</div>
+            <h6>You will receive an confirmation letter through your mail.</h6>
+        </div>
+
+
+        <div class="container bg-white w-75 p-4">
+
+            <div class="row ">
+                <div class="row justify-content-between subrow mb-3">
+                    <div class="col-5 text-start fw-light">
+                        <i class="fa fa-calendar text-green pe-2" aria-hidden="true"></i>
+                        Date
+                    </div>
+                    <div class="col-5 text-end fw-500">
+                        {{orderDate}}
+                    </div>
+                </div>
+
+                <div class="row justify-content-between subrow mb-3">
+                    <div class="col-5 text-start fw-light">
+                        <i class="fa fa-user text-green pe-2" aria-hidden="true"></i>
+                        Customer
+                    </div>
+                    <div class="col-5 text-end fw-500">
+                        {{customerName}}
+                    </div>
+                </div>
+
+                <div class="row justify-content-between subrow mb-3">
+                    <div class="col-5 text-start fw-light">
+                        <i class="fa fa-credit-card text-green pe-2" aria-hidden="true"></i>
+                        Payment Method
+                    </div>
+                    <div class="col-5 text-end mb-3">
+                        <i class="fa fa-cc-visa fs-4 text-primary"></i>
+
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="row justify-content-between subrow mb-3 ">
+                    <div class="col-5 text-start fw-light">
+                        <i class="fa fa-file text-green pe-2" aria-hidden="true"></i>
+                        Order Number
+                    </div>
+                    <div class="col-5 text-end fw-500">
+                        {{orderNumber}}
+                    </div>
+                </div>
+
+                <div class="row justify-content-between subrow mb-3">
+                    <div class="col-5 text-start fw-light">
+                        <i class="fa fa-usd text-green pe-2" aria-hidden="true"></i>
+                        Total
+                    </div>
+                    <div class="col-5 fs-5 fw-bold mb-3 text-end">
+                        {{totalPrice| currency:'INR'}}
+                    </div>
+                    <hr>
+                </div>
+
+
+
+
+
+
+
+
+                <!-- third row -->
+
+
+                <div *ngFor="let orderItem of orderItems"  class="d-flex align-items-center px-4 justify-content-between mb-2"><img src="../../../assets/BP-Tablet.png" alt="user-image"
+                        width="80" height="70" />
+
+                    <div class="ms-2 text-start d-flex flex-column">
+                        <div>{{orderItem.productName}}</div>
+                        <div>
+                            <!-- <h6>{{orderItem.productDesc}}</h6> -->
+                        </div>
+                    </div>
+                    <div class="ms-4 flex-column bg-grey rounded-pill px-2">
+                        <div>x{{orderItem.quantity}} Items</div>
+                    </div>
+                    <div class="ms-5 flex-column">
+                        <div>{{orderItem.price | currency:'INR'}}</div>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" routerLink="/CVSPharmacy"
+                      class="fs-6  ls-2 snbtn shadow btn rounded text-light bg-green ">Continue
+                      Shopping
+                    </button>
+                  </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

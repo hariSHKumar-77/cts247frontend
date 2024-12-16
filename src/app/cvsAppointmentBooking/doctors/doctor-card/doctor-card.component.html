@@ -1,0 +1,72 @@
+<div class="mx-4" style="position: relative; margin-bottom: 50px;">
+    <div class="shadow d-inline-block on-top bg-white rounded">
+        <img src="assets/images/ctslogo1.png" alt="user-image" class="img-fluid px-1" width="70" height="35" />
+    </div>
+    <div class="card w-100 px-4 pt-4 pb-2 shadow bg-color under">
+        <div class="">
+            <div class=" d-inline-block" style="vertical-align: top;">
+                <img src="assets/images/doc1.jpg" alt="user-image" class="img-fluid rounded-circle doctor-image"/>
+            </div>
+
+            <div class=" d-inline-block" style="vertical-align: top;">
+                <p class="px-3 doc-name">{{doctorDetails.doctor.doctorName}}</p>
+                <p class="px-3 doc-speciality text-uppercase">Doctor</p>
+                <p class="px-3 doc-experience">{{doctorDetails.doctor.experience}} YRS EXP.</p>
+                <p class="px-3 doc-qualification">{{doctorDetails.doctor.qualification}}</p>
+            </div>
+        </div>
+        <div class="card-body container">
+            <div class="row align-items-middle">
+                <div class="col-4">
+                    <div style="margin-left: 70px;">
+                        <div class="d-inline-block px-2" style="vertical-align: top; border-right: 1px solid black;"> 
+                            <p class="you-pay">You pay</p>
+                            <p class="you-pay-value">Rs. {{doctorDetails.amount}}</p>
+                        </div>
+
+                        <div class="d-inline-block px-2" style="vertical-align: top; margin: 0;">
+                            <p class="circle-pay">CIRCLE MEMBER PAYS</p>
+                            <p class="circle-pay-value">Rs. {{doctorDetails.amount}}</p>
+                        </div>
+                    </div>
+                    <div class="pt-3 language-location">
+                        <div><img src="assets/images/languageIcon.png"/>     {{doctorDetails.doctor.languages}}</div>
+                        
+                        <div>
+                            <div class="d-inline"><img src="assets/images/locationIcon.png"/></div>
+                            <div class="d-inline">{{doctorDetails.doctor.clinicAddress}}</div>  
+                        </div>
+                           
+                    </div>
+                </div>
+                <div class="col-5 text-center">
+                    <h3 class="font-weight-bold">Slot Selection</h3>
+                    <div class="pt-3 px-2 ms-4">
+                        <div class="row row-cols-3">
+                            <div *ngFor="let isSlotAvailable of slotAvailability; let i = index">
+                                <div class="col my-2 w-75 box border border-2 rounded cursor-pointer text-white"
+                                    [ngClass]="{'border-primary, bg-primary': trackSlots[i], 'bg-success border-success': !trackSlots[i]}"
+                                    *ngIf="isSlotAvailable" (click)="selectTimeslot(i)">
+                                    {{slotNames[i]}}
+                                </div>
+
+                                <div class="col my-2 w-75 border border-2 border-warning bg-warning rounded text-white"
+                                    *ngIf="!isSlotAvailable">
+                                    {{slotNames[i]}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <button type="button" class=" btn btn-danger" [disabled]="!enableConfirm"
+                        (click)="bookAppointment()"><div><img src="assets/images/hospitalIcon.png" class="px-2"/>   Book Hospital Visit</div>
+                        <div class="no-booking-fees">No Booking Fees</div>
+                    </button>
+                </div>
+            </div>
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <!-- <p class="card-text">{{clinic.clinicAddress}}</p> -->
+        </div>
+    </div>
+</div>

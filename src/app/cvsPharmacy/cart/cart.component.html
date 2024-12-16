@@ -1,0 +1,262 @@
+<app-header  ></app-header>
+<div *ngIf="!isCartEmpty()" class="container-fluid bg-lightgreen">
+  <div class="fs-2 text-center pt-5 pb-5 ls-2 fw-bold">
+    <div class="">My Cart ({{1}} items)</div>
+  </div>
+
+  <div class="container px-5">
+    <form [formGroup]="billingForm">
+      <div class="row  justify-content-between">
+        <div class="col-8 pe-5 h-100 ">
+          <div class="row mb-4 p-2 pt-4 bg-white">
+            <div class="fs-5">
+              <fa-icon [icon]="cartIcon"></fa-icon>
+              <span> Order Summary</span>
+            </div>
+
+            <div>
+              <table class="table mt-4" style="border-collapse:collapse">
+                <thead>
+                  <tr class="text-secondary text-center">
+                    <th class="border-none">Name</th>
+                    <th class="border-none">Price</th>
+                    <th class="border-none">Quantity</th>
+                    <th class="border-none">Total</th>
+                    <th class="border-none"></th>
+                    <th class="border-none"></th>
+                  </tr>
+                </thead>
+                <tbody class="align-middle ">
+                  <tr *ngFor="let cartItem of cartItems" class="">
+                    <td class="border-none">
+                      <div class="fw-bold ls-1">
+                        <img src="../../../assets/BP-Tablet.png" alt="user-image" width="70" height="70" />
+                        {{cartItem.productName}}
+
+                      </div>
+
+                    </td>
+                    <td class="text-center border-none">
+                      <div *ngIf="cartItem.discount==0">MRP {{ cartItem.price | currency : "INR" }}</div>
+                      <div *ngIf="cartItem.discount>0">MRP <s>(Rs. {{ cartItem.price| currency :"INR" }})</s><br>Rs. {{
+                        cartItem.price-(cartItem.discount/100)*cartItem.price | currency : "INR" }}</div>
+                      <!-- {{cartItem.price | currency:'INR'}} -->
+                    </td>
+                    <td class="border-none">
+                      <div class="input-group d-flex justify-content-center">
+                        <span class="input-group-btn">
+                          <button type="button" (click)="decreaseQuantity(cartItem.productId)"
+                            class="quantity-left-minus btn btn-danger btn-number text-center" data-type="minus"
+                            data-field="">
+                            <span class="fa fa-minus"></span>
+                          </button>
+                        </span>
+
+                        <input type="text" id="quantity" disabled [value]="getItemQty(cartItem.productId)"
+                          name="quantity" class=" text-center" style="width:40px" min="1">
+
+                        <span class="input-group-btn">
+                          <button type="button" (click)="increaseQuantity(cartItem.productId)"
+                            class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                            <span class="fa fa-plus"></span>
+                          </button>
+                        </span>
+
+                      </div>
+                    </td>
+                    <td class="text-center border-none">
+                      <div>{{(cartItem.price-(cartItem.discount/100)*cartItem.price)*cartItem.quantity |
+                        currency:'INR'}}
+                      </div>
+                    </td>
+                    <td class="border-none cursor-pointer">
+                      <fa-icon [icon]="delete" (click)="removeFromCart(cartItem.productId)">
+
+                      </fa-icon>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+            <div class="row my-4">
+              <div class="col-6">
+
+              </div>
+              <div class="col-6">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 p-2 pt-4 bg-white">
+            <div class="fs-5">
+              <fa-icon [icon]="truckIcon"></fa-icon>
+              <span> Delivery options</span>
+            </div>
+
+            <div class="row my-4">
+              <div class="col-6">
+                <input class="" hidden [value]="'InstDelv'" name="delvOpt"
+                  [checked]="billingForm.value.deliveryType=='InstDelv'" type="radio">
+                <div class="card p-3 delvOpt" (click)="onClick('InstDelv')"
+                  [class.active]="billingForm.value.deliveryType=='InstDelv' ">
+                  <div class="d-flex">
+                    <i class="fa fa-check-circle fs-4 "></i>
+                    <div class="d-flex ms-4 flex-column  ">
+                      <div class="card-text py-1 fs-5 fw-bold ls-1"> {{100 | currency:'INR'}}</div>
+                      <div class="card-text py-1">Instant Delivery</div>
+                      <div class="card-text ">Est.arrival: DD/MM</div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-6">
+                <input class="" [value]="'StdDelv'" hidden name="delvOpt"
+                  [checked]="billingForm.value.deliveryType=='StdDelv'" type="radio">
+                <div class="card p-3 delvOpt" (click)="onClick('StdDelv')"
+                  [class.active]="billingForm.value.deliveryType=='StdDelv'">
+                  <div class="d-flex">
+                    <i class="fa fa-check-circle fs-4 "></i>
+                    <div class="d-flex ms-4 flex-column  ">
+                      <div class="card-text py-1 fs-5 fw-bold ls-1"> {{50 | currency:'INR'}}</div>
+                      <div class="card-text py-1">Standard Delivery</div>
+                      <div class="card-text ">Est.arrival: DD/MM</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row p-2 pt-4 mb-5 bg-white">
+            <div class="fs-5 mb-3">
+              <fa-icon [icon]="user"></fa-icon>
+              <span> Customer Information</span>
+            </div>
+
+
+
+            <div class="row mb-4 w-100  justify-content-between m-auto">
+              <div class="form-group col-6 p-0 pe-2">
+                <div class="mt-2 mb-1">Full Name</div>
+                <input type="text" id="billingName" name="billingName" placeholder="Full Name"
+                  formControlName="billingName" class="w-100 p-2 bg-grey">
+                <div
+                  *ngIf="billingForm.controls['billingName'].invalid && (billingForm.controls['billingName'].dirty || billingForm.controls['billingName'].touched)"
+                  class="invalid-feedback mb-3">
+                  Customer Name is required
+                </div>
+
+              </div>
+
+              <div class="form-group col-6 p-0">
+                <div class="mt-2 mb-1">Phone Number</div>
+                <input type="text" id="billingPhNumber" name="billingPhNumber" placeholder="Phone Number"
+                  formControlName="billingPhNumber" class="w-100 p-2 bg-grey">
+                <div class="invalid-feedback"
+                  *ngIf="billingForm.controls['billingPhNumber'].invalid && (billingForm.controls['billingPhNumber'].dirty || billingForm.controls['billingPhNumber'].touched)"
+                  class="invalid-feedback mb-3">
+                  <div *ngIf="billingForm.controls['billingPhNumber'].errors?.['required']">Last Name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-2">
+              <div class="mt-2 mb-1">Address</div>
+              <input type="text" id="billingAddress" name="billingAddress" placeholder="Address"
+                formControlName="billingAddress" class="w-100 p-2 bg-grey">
+              <div class="invalid-feedback"
+                *ngIf="billingForm.controls['billingAddress'].invalid && (billingForm.controls['billingAddress'].dirty || billingForm.controls['billingAddress'].touched)"
+                class="invalid-feedback ">
+                <div *ngIf="billingForm.controls['billingAddress'].errors?.['required']">Last Name is required.</div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="col-4 p-4 bg-white h-100 border-green rounded">
+
+
+          <div class="fw-bold fs-5 ls-1">
+            Payment method
+          </div>
+          <div class="">
+            <h5 class="mt-3 text-primary">Change payment methods</h5>
+            <div class="mt-1 py-3 px-3 border-green d-flex align-items-center w-100 bg-lightgreen">
+              <div class="text-green me-2">
+                <i class="fa fa-cc-mastercard text-danger fs-4 "></i>
+              </div>
+              <div class="text-green fw-bold-1">Mastercard </div>
+              <div class="text-green fw-bold-1 ms-auto"> ****5987</div>
+
+            </div>
+
+            <div class="mt-4 mb-1 fw-bold-1">Voucher</div>
+            <div class="m-auto row w-100 ">
+              <input type="text" class="p-1 col-9" placeholder="Rs.50 OFF">
+              <button class="col-3 btn text-light bg-green ls-1">Apply </button>
+            </div>
+
+
+
+            <div class="fs-6 mt-4 pb-2 fw-bold-1">
+              <fa-icon [icon]="summary" class="text-green me-1"></fa-icon>
+              Summary
+            </div>
+
+
+            <div class="pb-1">Subtotal <span class="float-end">
+                {{itemsPrice | currency:'INR'}}
+              </span></div>
+            <div class="pb-1">Discount <span class="float-end">
+                {{discount |currency:'INR'}}
+              </span></div>
+            <div class="pb-1">Delivery Fee <span class="float-end">
+                {{deliveryCharge | currency:'INR'}}
+              </span></div>
+            <hr>
+            <div>Total <span class="float-end fs-4 fw-bold-1 text-darkgreen">
+
+                {{itemsPrice+deliveryCharge | currency:'INR'}}
+
+              </span></div>
+
+            <div class="mt-4">
+              <button type="button" [disabled]="!billingForm.valid" class="w-100 btn btn-success px-5 py-2" (click)="submitForm()">Proceed to Payment</button>
+              <!-- <button type="submit" class="btn btn-primary mt-2" [disabled]="!registrationForm.valid" (click)="submitForm()" >Submit</button> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+
+
+</div>
+<div class="container-fluid pt-5 bg-lightgreen mb-5" *ngIf="isCartEmpty()">
+  <div class="w-75 mt-5 m-auto rounded">
+    <div class="card w-75 m-auto bg-white rounded mt-5 px-5 py-2">
+      <div class="card-body text-green text-center">
+        <div class="fs-4 mb-2 text-green ls-3">Your Cart is Empty</div>
+        <div>
+          <button type="button" routerLink="/CVSPharmacy"
+            class="fs-5 mt-4 mb-2 ls-2 snbtn shadow btn rounded text-light bg-green fw-bold">CONTINUE
+            SHOPPING
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

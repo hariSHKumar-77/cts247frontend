@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="root-div">
+    <div class="container">
+        <div class="row p-3 justify-content-center align-items-center">
+            <div class="col-md-6 ">
+                <div class="form-group has-search ">
+                    <span class="material-icons form-control-feedback">search</span>
+                    <input type="text" class="form-control rounded-pill" placeholder="Search" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Sortby
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" (click)="orderByAsc()">Low to High</a></li>
+                        <li><a class="dropdown-item" (click)="orderByDesc()">High to Low</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5    ">
+            <header class="masthead">
+
+                <div class="masthead-content">
+                    <div class="container px-5 text-center mb-5">
+                        <div class="grid-container">
+                            <div *ngFor="let date of datesList; let i=index">
+                                <div class="cursor-pointer" [ngClass]="{'date-selected': trackDates[i] && (date.getDay() != 0),
+                            'calender': date.getDay() != 0 && (!trackDates[i]),
+                            'opacity-50': date.getDay() == 0}" (click)="selectDate(i)">
+                                    <div class>
+                                        <div class="fw-light">{{dayName[date.getDay()]}}</div>
+                                        <div class="fs-3 fw-bold">{{date.getDate()}}</div>
+                                        <div class="fw-light">{{monthName[date.getMonth()]}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container px-5 pt-3">
+                        <div *ngFor="let doctorDetails of doctorsList">
+                            <app-doctor-card [doctorDetails]="doctorDetails"
+                                [selectedDate]="selectedDate"></app-doctor-card>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="bg-circle-1 bg-circle"></div>
+                <div class="bg-circle-2 bg-circle"></div>
+                <div class="bg-circle-3 bg-circle"></div>
+                <div class="bg-circle-4 bg-circle"></div> -->
+            </header>
+        </div>
+    </div>
+</div>

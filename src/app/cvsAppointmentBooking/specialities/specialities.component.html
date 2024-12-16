@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+
+<div class="container">
+    <div class="row p-3 justify-content-center align-items-center">
+        <div class="col-md-6 ">
+            <div class="form-group has-search ">
+                <span class="material-icons form-control-feedback">search</span>
+                <input type="text" class="form-control rounded-pill" placeholder="Search" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Sortby
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" (click)="orderByAsc()">Low to High</a></li>
+                    <li><a class="dropdown-item" (click)="orderByDesc()">High to Low</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <div class="row justify-content-around row-cols-3">
+                        <div *ngFor="let service of servicesList; let i = index">
+                            <div class="col p-4">
+                                <div class="card text-center green box shadow" (click)="getDoctors(i)">
+                                    <img class="card-img-top img-fluid px-4 pt-4 pb-3"
+                                        src="{{service.imgUrl}}"
+                                        style="width:400px;height:250px;" alt="Card image cap">
+                                    <div class="card-block mt-2">
+                                        <div class="card-title service-name">{{service.serviceName}}</div>
+                                        <div class="card-title service-desc2">{{service.serviceDesc2}}</div>
+                                        <button type="button" class="btn button-color" (click)="getDoctors(i)">Click
+                                            Here</button>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="bg-circle-1 bg-circle"></div>
+                <div class="bg-circle-2 bg-circle"></div>
+                <div class="bg-circle-3 bg-circle"></div>
+                <div class="bg-circle-4 bg-circle"></div> -->
+        </header>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.root-div {
+  background-color: rgb(245, 245, 245);
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.green {
+    background-color:hsl(138, 82%, 89%);
+  }
+
+  header.masthead {
+    position: relative;
+    overflow: hidden;
+  }
+  header.masthead .masthead-content {
+    z-index: 1;
+    position: relative;
+  }
+
+  .box {
+    transition: 0.4s;
+  }
+
+  .box:hover {
+    transform:scale(1.1);
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .calender:hover {
+    background-color: rgb(148, 216, 161);
+    color: black;
+  }
+  
+  .date-selected {
+    cursor: pointer;
+    background-color: rgb(65, 190, 88);
+    color: white;
+  }
+  
+  .box:hover {
+    transform:scale(1.1);
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+  }

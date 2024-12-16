@@ -1,0 +1,12 @@
+.nav-link{
+    color: #565D6DFF;
+
+}
+.nav-link.active{
+color: #52AE77FF;
+border-bottom:3px solid #52AE77FF ;
+}
+
+.ls-2{
+    letter-spacing: 2px;
+}

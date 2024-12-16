@@ -1,0 +1,128 @@
+<app-header></app-header>
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <!-- <h4 class="mb-3">Address</h4> -->
+
+        <div class="col-3 ">
+            <app-user></app-user>
+        </div>
+        <div class="col-8 ">
+            <div class="container px-5 pb-5 pt-3">
+                <div class="mt-4 mb-5">
+                    <div class="fw-bold ls-3 text-green fs-3">Address</div>
+                </div>
+                <form #addressForm="ngForm">
+
+                    <div class="row mt-2">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">House No</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['houseNo']">{{ address.houseNo }}</p>
+                            <ng-container *ngIf="!btnStatus['houseNo']">
+                                <div class="form-outline">
+                                    <input type="text" name="houseNo" [(ngModel)]="address.houseNo" ngModel
+                                        placeholder="{{ address.houseNo }}" class="form-control" style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('houseNo')">{{ btnStatus['houseNo']? 'Edit' :
+                                'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-2">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Street Name</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['streetName']">{{ address.streetName }}</p>
+                            <ng-container *ngIf="!btnStatus['streetName']">
+                                <div class="form-outline">
+                                    <input type="text" name="streestName" ngModel [(ngModel)]="address.streetName"
+                                        placeholder="{{ address.streetName }}" class="form-control"
+                                        style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('streetName')">{{ btnStatus['streetName'] ?
+                                'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">City</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['city']">{{ address.city }}</p>
+                            <ng-container *ngIf="!btnStatus['city']">
+                                <div class="form-outline">
+                                    <input type="text" name="city" ngModel [(ngModel)]="address.city"
+                                        placeholder="{{ address.city }}" class="form-control" style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('city')">{{ btnStatus['city'] ? 'Edit' :
+                                'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">District</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['district']">{{ address.district }}</p>
+                            <ng-container *ngIf="!btnStatus['district']">
+                                <div class="form-outline">
+                                    <input type="text" name="district" ngModel [(ngModel)]="address.district"
+                                        placeholder="{{ address.district }}" class="form-control" style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('district')">{{ btnStatus['district'] ?
+                                'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">State</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['state']">{{ address.state }}</p>
+                            <ng-container *ngIf="!btnStatus['state']">
+                                <div class="form-outline">
+                                    <input type="text" name="state" ngModel [(ngModel)]="address.state"
+                                        placeholder="{{ address.state }}" class="form-control" style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('state')">{{ btnStatus['state'] ? 'Edit' :
+                                'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Pincode</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['pincode']">{{ address.pincode }}</p>
+                            <ng-container *ngIf="!btnStatus['pincode']">
+                                <div class="form-outline">
+                                    <input type="text" name="pincode" ngModel [(ngModel)]="address.pincode"
+                                        placeholder="{{ address.pincode }}" class="form-control" style="width: 50%;" />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-light" (click)="onClick('pincode')">{{ btnStatus['pincode'] ? 'Edit'
+                                : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr class="mb-2">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+<app-footer></app-footer>

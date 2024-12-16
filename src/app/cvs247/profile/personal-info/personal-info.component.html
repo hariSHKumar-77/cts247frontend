@@ -1,0 +1,138 @@
+<app-header></app-header>
+<div class="container-fluid">
+    
+    <div class="row justify-content-center">
+      
+        <div class="col-3 ">
+            <app-user></app-user>
+        </div>
+        <div class="col-8 ">
+            <div class="container px-5 pb-4 pt-2">
+                <div class=" icon mb-4">
+                    <div class="profile-image">
+                        <img width="60" height="60" class=" rounded-circle border"
+                            [src]="getImage()">
+                        <button class="pencil btn btn-light btn-floating bg-dark text-light" (click)="inputField.click()"><i
+                                class="bi bi-pencil-fill"></i></button>
+                    </div>
+                    <input #inputField type="file" accept="image/*" hidden (change)="uploadImage($event)">
+                </div>
+                <form #piForm="ngForm">
+                    <!-- <div *ngFor="let info of infos"> -->
+                    <div class="row mt-2">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">First Name</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['firstname']">{{ personalInfo.firstname }}</p>
+                            <ng-container *ngIf="!btnStatus['firstname']">
+                                <div class="form-outline">
+                                    <input type="text" [(ngModel)]="personalInfo.firstname" name="firstname"
+                                        placeholder="{{personalInfo.firstname}}" class="form-control"
+                                        style="width: 50%;" ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+                            <button type="text" class="btn btn-light" (click)="onClick('firstname')">{{
+                                btnStatus['firstname'] ? 'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Last Name</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['lastname']">{{ personalInfo.lastname }}</p>
+                            <ng-container *ngIf="!btnStatus['lastname']">
+                                <div class="form-outline">
+                                    <input type="text" [(ngModel)]="personalInfo.lastname" name="lastname"
+                                        placeholder="{{personalInfo.lastname}}" class="form-control" style="width: 50%;"
+                                        ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+                            <button type="text" class="btn btn-light" (click)="onClick('lastname')">{{
+                                btnStatus['lastname'] ? 'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Email</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['email']">{{ personalInfo.email }}</p>
+                            <ng-container *ngIf="!btnStatus['email']">
+                                <div class="form-outline">
+                                    <input type="email" name="email" [(ngModel)]="personalInfo.email"
+                                        placeholder="{{ personalInfo.email }}" class="form-control" style="width: 50%;"
+                                        ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-light" (click)="onClick('email')">{{ btnStatus['email'] ?
+                                'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Gender</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['gender']">{{ personalInfo.gender }}</p>
+                            <ng-container *ngIf="!btnStatus['gender']">
+                                <div class="form-outline">
+                                    <input type="text" name="gender" [(ngModel)]="personalInfo.gender"
+                                        placeholder="{{ personalInfo.gender }}" class="form-control" style="width: 50%;"
+                                        ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-light" (click)="onClick('gender')">{{ btnStatus['gender'] ?
+                                'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Date of Birth</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['dateOfBirth']">{{ personalInfo.dateOfBirth }}</p>
+                            <ng-container *ngIf="!btnStatus['dateOfBirth']">
+                                <div class="form-outline">
+                                    <input type="text" name="dob" [(ngModel)]="personalInfo.dateOfBirth" placeholder="{{ personalInfo.dateOfBirth }}"
+                                        class="form-control" style="width: 50%;" ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-light" (click)="onClick('dateOfBirth')">{{ btnStatus['dateOfBirth'] ? 'Edit'
+                                : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="mb-1 fw-bold">Emergency Contact</h5>
+                            <p class="text-muted mb-0" [hidden]="!btnStatus['emergencyContact']">{{ personalInfo.emergencyContact }}</p>
+                            <ng-container *ngIf="!btnStatus['emergencyContact']">
+                                <div class="form-outline">
+                                    <input type="number" name="emergencyContact" [(ngModel)]="personalInfo.emergencyContact"
+                                        placeholder="{{ personalInfo.emergencyContact }}" class="form-control"
+                                        style="width: 50%;" ngModel />
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-2">
+
+                            <button type="submit" class="btn btn-light" (click)="onClick('emergencyContact')">{{
+                                btnStatus['emergencyContact'] ? 'Edit' : 'Save' }}</button>
+                        </div>
+                    </div>
+                    <hr class="mb-2">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,16 @@
+.footer{
+    background: #171A1FFF;
+    font-size: 14px;
+
+}
+.subscribeButton{
+background-color: #52AE77FF;
+color: white;
+}
+.MailInput{
+    background-color: #363636FF;
+    color: white;
+}
+.MailInput::placeholder{
+    color: white;
+}

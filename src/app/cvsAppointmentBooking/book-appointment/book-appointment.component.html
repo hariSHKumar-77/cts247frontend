@@ -1,0 +1,91 @@
+`<app-header></app-header>
+
+
+
+<!-- <div class="container-fluid rectangleBox">
+  <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-md-12 d-flex  flex-column justify-content-center align-items-center">
+          <div class="UserInfo fs-1 ls-2 fw-bold">
+              Hi Username!
+          </div>
+          <div class="mt-5 fs-1 fw-bold ls-2">
+              Welcome to  <img
+              src="assets/New.png"
+              alt="user-image"
+              class="img-fluid"
+              width="100px"
+              height="100px"
+            /> Pharmacy
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="row banner mt-1">
+    <div class="col-md-5 d-flex flex-column justify-content-center px-4 mx-5">
+        <h1 class="fs-1 mb-2 mt-3">Hi Username!</h1>
+        <div class="mt-5">
+            <p class="masthead-subheading fs-5" style="color: rgb(197, 255, 220);">It may take a doctor to diagnose
+                someone, but it takes a true friend to recognize ones suffering.</p>
+            <p class="masthead-subheading fs-4" style="color: darkgreen;">Get Well Soon, My Friend :)"</p>
+        </div>
+        <h6 class="fs-6 mb-3 mt-4">
+            Book an appointment with an nearest doctor around you
+        </h6>
+        <button class="btn" routerLink="/BookAppointment/specialities">Book</button>
+    </div>
+    <div class="col-md-5 position-relative">
+        <img src="assets/images/doctorPatient3.png" alt="user-image" class="img-fluid banner-img" />
+
+        <img src="assets/images/Rectangle.png" alt="user-image" class="img-fluid banner-img-blur" />
+    </div>
+</div>
+
+<section id="services"></section>
+<div>
+    <h1>Specialities</h1>
+</div>
+<div class="mask">
+    <div *ngFor="let service of servicesList; let i=index">
+        <section *ngIf="i % 2 != 0 && i < 3">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2 order-lg-2">
+                        <div class="p-5 rounded-circle green" style="height: 75%; width: 75%;"><img class="img-fluid p-3"
+                                src="{{service.imgUrl}}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">{{service.serviceName}}</h2>
+                            <p>{{service.serviceDesc}}
+                                <a routerLink="/calculateNetWorth">Click here</a> to visit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section *ngIf="i % 2 == 0 && i < 3">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5 rounded-circle green" style="height: 300px; width: 300px;"><img class="img-fluid p-3" 
+                                src="{{service.imgUrl}}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">{{service.serviceName}}</h2>
+                            <p>{{service.serviceDesc}}
+                                <a routerLink="/">Click here</a> to visit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="line"></div>
+<div class="text-center mb-5 fs-6 mt-2"><a routerLink="/BookAppointment/specialities">Show All</a></div>
+<app-footer></app-footer>

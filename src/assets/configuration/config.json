@@ -1,0 +1,24 @@
+{
+    "cvs247BackendServiceAPI":"http://localhost:8090/cvs247",
+    "generateOTPAPI":"/twilio/generateOTP",
+    "loginAPI":"/auth/login",
+    "registerAPI":"/auth/register",
+    "userDetailsAPI":"/auth/user",
+    "userAddressAPI":"/auth/user/address",
+    "updateDetailsAPI":"/auth/updateDetails",
+    "updateAddressAPI":"/auth/updateAddress",
+    "getProductsAPI":"/pharmacy/getProducts",
+    "addToCartAPI":"/pharmacy/addToCart",
+    "updateCartAPI":"/pharmacy/updateCart",
+    "isItemInCart":"/pharmacy/isItemInCart",
+    "getCartItemsAPI":"/pharmacy/getCartItems",
+    "getCartAPI":"/pharmacy/getCart",
+    "removeFromCartAPI":"/pharmacy/removeFromCart",
+    "placeOrderAPI":"/pharmacy/placeOrder",
+    "getOrderDetails":"/pharmacy/getOrderDetails",
+    "purchaseHistoryAPI":"/pharmacy/purchaseHistory",
+    "getAllServicesURI": "/slotbooking/services",
+    "getAllDoctorsURI":"/slotbooking/doctor-availability/service",
+    "bookAppointmentURI":"/slotbooking/appointment"
+}
+

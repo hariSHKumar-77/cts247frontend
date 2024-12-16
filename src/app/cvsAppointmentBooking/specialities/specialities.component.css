@@ -1,0 +1,55 @@
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.green {
+    background-color:hsl(137, 83%, 91%);
+  }
+
+  header.masthead {
+    position: relative;
+    overflow: hidden;
+  }
+  header.masthead .masthead-content {
+    z-index: 1;
+    position: relative;
+  }
+
+  .box {
+    transition: 0.4s;
+  }
+
+  .box:hover {
+    transform:scale(1.1);
+  }
+
+  .service-name {
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+  }
+
+  .service-desc2 {
+    color: rgb(100, 100, 100);
+  }
+
+  .button-color {
+    background-color: rgb(49, 134, 69);
+    color: white;
+  }
+
+  .button-color:hover {
+    background-color: rgb(24, 95, 40);
+  }

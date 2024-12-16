@@ -1,0 +1,49 @@
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.green {
+    background-color:hsl(139, 67%, 92%);
+  }
+
+  header.masthead {
+    position: relative;
+    overflow: hidden;
+  }
+  header.masthead .masthead-content {
+    z-index: 1;
+    position: relative;
+  }
+
+  .box {
+    transition: 0.4s;
+  }
+
+  .box:hover {
+    transform:scale(1.1);
+  }
+
+  .details {
+    margin-top: -100px;
+  }
+
+  .patient-details {
+    margin: 0;
+  }
+
+  .patient-details-span {
+    font-weight: bold;
+    color: rgb(89, 108, 192);
+  }

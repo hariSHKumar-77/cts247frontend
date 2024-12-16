@@ -1,0 +1,85 @@
+<!-- <app-header></app-header> -->
+<div class="container-fluid overflow-hidden">
+  <div class="row">
+    <div class="col-md-6 pt-5 ps-5 pe-5">
+
+      <div class="fs-3 text-start pb-2">Welcome to CVS24/7!</div>
+      <div class="fs-6 text-green mt-2 ">Let us quickly get to know you so that we can get you the best help :)</div>
+      <form [formGroup]="registrationForm" novalidate>
+        <div class="form-group">
+          <p class="mt-4">Full Name</p>
+          <input type="text" class="fs-5 mb-3" id="firstname" name="firstname" placeholder="First Name"
+            formControlName="firstname">
+          <div
+            *ngIf="registrationForm.controls['firstname'].invalid && (registrationForm.controls['firstname'].dirty || registrationForm.controls['firstname'].touched)"
+            class="invalid-feedback mb-3">
+            First Name is required
+          </div>
+
+
+        </div>
+        <div class="form-group">
+          <input type="text" id="lastname" class="fs-5" name="lastname" placeholder="Last Name"
+            formControlName="lastname">
+          <div class="invalid-feedback"
+            *ngIf="registrationForm.controls['lastname'].invalid && (registrationForm.controls['lastname'].dirty || registrationForm.controls['lastname'].touched)"
+            class="invalid-feedback mb-3">
+            <div *ngIf="registrationForm.controls['lastname'].errors?.['required']">Last Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <p class="mt-4">Date Of Birth</p>
+          <input type="date" class="fs-5" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth">
+          <div class="invalid-feedback"
+            *ngIf="registrationForm.controls['dateOfBirth'].invalid && (registrationForm.controls['dateOfBirth'].dirty || registrationForm.controls['dateOfBirth'].touched)">
+            <div *ngIf="registrationForm.controls['dateOfBirth'].errors?.['required']">Date of Birth is required.</div>
+          </div>
+        </div>
+        <p class="mt-4">Gender</p>
+        <div class="gender-container">
+          <input class="gender-btn male" [value]="'MALE'" name="gender" formControlName="gender" hidden
+            [checked]="registrationForm.value.gender=='MALE'" type="radio">
+          <button class="gender-btn male" (click)="onMaleClick()"
+            [class.active]="registrationForm.value.gender=='MALE' ">MALE</button>
+          <input class="gender-btn female" [value]="'FEMALE'" name="gender" formControlName="gender" hidden
+            [checked]="registrationForm.value.gender=='FEMALE'" type="radio">
+          <button class="gender-btn female" (click)="onFemaleClick()"
+            [class.active]="registrationForm.value.gender=='FEMALE'">FEMALE</button>
+          <div class="invalid-feedback" *ngIf="registrationForm.value.gender!=null">Gender is required.</div>
+        </div>
+
+        <div class="form-group">
+          <p class="mt-4">Email</p>
+          <input type="email" id="email" class="fs-5" name="email" placeholder="abc@gmail.com" formControlName="email">
+          <div class="invalid-feedback"
+            *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)">
+            <div *ngIf="registrationForm.controls['email'].errors?.['email']">Email is invalid.</div>
+          </div>
+        </div>
+        <div class="d-flex"> 
+
+          <button type="button" class="btn btn-primary mt-4  me-5" routerLink="/">Cancel</button>
+          <button type="submit" class="btn btn-warning text-light mt-4  pe-3" [disabled]="!registrationForm.valid"
+            (click)="submitForm()">Submit</button>
+
+        </div>
+
+        <div class="form-group"><br></div>
+      </form>
+
+    </div>
+
+    <div class="col-md-6 right-col">
+      <h1>
+        Fill all the details to join us
+      </h1>
+
+      <div class="image-container">
+        <img src="assets/images/sunny.png" alt="icon" class="img-fluid icon-image">
+        <img src="assets/images/ctslogo1.png" alt="image" class="img-fluid logo-image">
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

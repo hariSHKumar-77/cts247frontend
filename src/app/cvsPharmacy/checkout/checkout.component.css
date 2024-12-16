@@ -1,0 +1,42 @@
+
+
+
+.subrow {
+    margin: 0.3em;
+}
+
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+.bg-green{
+    background-color: #52AE77FF;
+  }
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.bg-white {
+    background-color: #FFFFFFFF;
+}
+
+.text-green {
+    color: #52AE77FF;
+}
+
+.border-green {
+    border-color: #52AE77FF;
+    border-style: solid;
+    border-width: 1px;
+}
+.bg-lightgreen{
+    background-color: #F5FAF7FF;
+  }
+
+.fw-500{
+    font-weight: 500;
+}
+
+.bg-grey{
+    background-color: #F3F4F6FF;
+}

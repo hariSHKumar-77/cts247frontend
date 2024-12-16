@@ -1,0 +1,111 @@
+<app-header [cartSize]="getCartSize()"></app-header>
+
+
+
+<div class="container-fluid rectangleBox">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-12 d-flex  flex-column justify-content-center align-items-center">
+      <div class="UserInfo fs-1 ls-2 fw-bold">
+        Hi Username!
+      </div>
+      <div class="mt-5 fs-1 fw-bold ls-2">
+        Welcome to <img src="assets/New.png" alt="user-image" class="img-fluid" width="100px" height="100px" /> Pharmacy
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container p-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-6 ">
+      <div class="form-group has-search ">
+        <span class="material-icons form-control-feedback">search</span>
+        <input type="text" class="form-control rounded-pill bg-grey " [(ngModel)]="filteredProducts"
+          placeholder="Search" />
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="dropdown">
+        <button class="btn bg-grey dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sortby
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item cursor-pointer" (click)="orderByAsc()">Price : Low to High</a></li>
+          <li><a class="dropdown-item cursor-pointer" (click)="orderByDesc()">Price : High to Low</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-3 mb-5 " *ngFor="let product of products | filter : filteredProducts">
+      <ng-container *ngIf="product.length!=0; else emptylist">
+        <div class="card h-100 shadow">
+          <div class="img-background card-header px-3 pt-4 pb-2 bg-white  border-0">
+            <img src="{{ product.imageUrl }}" class=" position-relative " alt="No image" />
+            <div *ngIf="product.discount>0" class="position-absolute top-0 end-0 p-2 bg-warning text-light fw-bold">
+              -{{product.discount}}%</div>
+            <div class="card-title text-green font-weight-bold mt-2">{{ product.productName }}-{{ product.productDesc }}
+            </div>
+          </div>
+
+          <div class="card-body mt-1">
+            <hr>
+            <div class="text-center">
+              <h4 class="card-text ">
+                <div *ngIf="product.discount==0">MRP {{ product.price | currency : "INR" }}</div>
+                <div *ngIf="product.discount>0">MRP <s>(Rs. {{ product.price| currency :"INR" }})</s><br>Rs. {{
+                  product.price-(product.discount/100)*product.price | currency : "INR" }}</div>
+              </h4>
+            </div>
+          </div>
+
+          <div class="card-footer bg-dark p-0">
+            <div class="d-flex w-100 justify-content-between">
+              <div *ngIf="isItemInCart(product.productId)" class="">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button type="button" (click)="decreaseQuantity(product.productId)"
+                      class="quantity-left-minus btn btn-danger btn-number text-center px-4" data-type="minus" data-field="">
+                      <span class="fa fa-minus"></span>
+                    </button>
+                  </span>
+
+                  <input type="text" id="quantity" disabled [value]="getItemQty(product.productId)" name="quantity"
+                     class="form-control input-number text-center" min="1" max="10">
+
+                  <span class="input-group-btn">
+                    <button type="button" (click)="increaseQuantity(product.productId)"
+                      class="quantity-right-plus btn btn-success btn-number px-4" data-type="plus" data-field="">
+                      <span class="fa fa-plus"></span>
+                    </button>
+                  </span>
+
+                </div>
+              </div>
+              <div *ngIf="!isItemInCart(product.productId)" class="w-100">
+                <button value="Add" (click)="addToCart(product.productId)" class="py-2 ls-2 w-100 fw-bold btn text-light bg-darkgreen">ADD TO
+                  <span class="fa fa-shopping-cart fs-5"></span></button>
+              </div>
+              
+            </div>
+
+          </div>
+
+          <!-- <div>
+            <button class="btn btn-outline-success rounded-circle d-flex justify-content-center align-items-center"
+              type="button" (click)="OnAddToCart(product.productId)">
+              <span class="material-icons ">shopping_cart</span>
+            </button>
+          </div> -->
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <ng-template #emptylist>
+    <p>No Products Found</p>
+  </ng-template>
+
+</div>
+
+<app-footer></app-footer>

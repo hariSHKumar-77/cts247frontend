@@ -1,0 +1,98 @@
+body {
+    background-color: #f5f5f5;
+  }
+  .container-fluid {
+    height: 100vh;
+  }
+  h2.mt-5 {
+    margin-bottom:0px;
+    font-family: Mulish;
+  }
+  
+  label[for="mobileNumber"] {
+    font-size: 24px;
+    color: #52AE77FF;
+    font-family: Mulish;
+  }
+  .invalid-feedback{
+    color: #52AE77FF;
+  }
+  .btn-primary {
+    background-color: #52AE77FF;
+    font-size: 20px;
+    border-radius: 0;
+    border: none;
+  }
+  .btn-primary:enabled{
+    background-color: #52AE77FF;
+  
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: lightgreen;
+  }
+  .btn{
+    width: 384px; 
+    height: 44px; 
+  }
+  
+  .row {
+    height: 100%;
+  }
+  .left-col {
+    background-color: #F5FAF7FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-col img {
+    width: 125px;
+    height: 129px;
+    margin-top: 20px;
+   padding: 0%;
+  }
+  .right-col {
+    background-color: #367C60FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 100px; 
+    position: relative;
+  }
+  
+  .right-col h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2; 
+    font-family: Mulish;
+    margin-top: 50px;
+  }
+  
+  
+  
+  .icon-image {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin-top:40px;
+    margin-bottom: 10px; 
+    float: left; 
+  }
+  
+  .logo-image {
+    width: 264px;
+    height: 130px;
+    display: block;
+    margin-right: 100px;
+    margin-left: 70px; 
+    float: left; 
+  }
+      
+  
+  

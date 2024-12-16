@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <p><a href="#" class="text-decoration-none link-dark"><i class="bi bi-caret-left-fill"></i>&nbsp;Back</a></p>
+            <h3 class="mb-4 fs-4 ls-1">Account Settings</h3>
+            <div>
+                <ul class="list-unstyled list-inline m-2">
+                    <li><a class="nav-link list-inline-item mb-2 mt-3 " 
+                        routerLink="/personal-info" 
+                        routerLinkActive="active"               
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        ><i class="bi bi-person  btn-circle me-2"></i>&nbsp;Personal Info</a></li>
+
+                    <li><a class="nav-link list-inline-item mb-2 cursor-pointer"><i class="bi bi-file-earmark-text  btn-circle me-2"></i>&nbsp;Health Records</a></li>
+                    
+                    <li><a class="nav-link list-inline-item mb-2  " 
+                        routerLink="/purchaseHistory" 
+                        routerLinkActive="active"               
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        ><i class="bi bi-briefcase btn-circle me-2"></i>&nbsp;Purchase History</a></li>
+
+                    <li><a class="nav-link list-inline-item mb-2 " 
+                        routerLink="/addressBook" 
+                        routerLinkActive="active"               
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        ><i class="bi bi-building btn-circle me-2"></i>&nbsp;Address Book</a></li>
+
+                    <li><a class="nav-link list-inline-item mb-2  cursor-pointer"><i class="bi bi-sliders btn-circle me-2 "></i>&nbsp;Preferences</a></li>
+
+                    <li><a class="nav-link list-inline-item mb-2  cursor-pointer"><i class="bi bi-bell btn-circle me-2 "></i>&nbsp;Email Notification</a></li>
+
+                    <li><a (click)="logout()" class="nav-link list-inline-item  cursor-pointer"><i class="bi bi-box-arrow-right btn-circle me-2 "></i>&nbsp;Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

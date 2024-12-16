@@ -1,0 +1,40 @@
+.btn-circle {
+    /* width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+    background-color: rgb(218, 213, 213); */
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    background-color: rgb(234, 229, 229);
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
+  li:hover {
+    color: #52ae77;
+  }
+
+  .ls-1{
+    letter-spacing: 2px;
+  }
+
+  .nav-link.active{
+    color: #52AE77FF;
+    /* background-color: #52ae77; */
+    border-left:3px solid #52AE77FF ;
+    }
+
+    .nav-link{
+      color: black;
+  
+  }
